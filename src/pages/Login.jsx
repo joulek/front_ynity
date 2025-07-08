@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { motion } from "framer-motion";
 import backgroundImage from "../assets/auth-bg-5.jpg";
-import logo from "../assets/logo_2_sans_bg.png"; // ✅ ton logo importé ici
+import logo from "../assets/logo_final_sansbg.png"; // ✅ ton logo importé ici
 import { Eye, EyeOff } from "lucide-react";
 
 
