@@ -1,0 +1,379 @@
+/* Styles généraux */
+.my-plannings-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Ajoutez ceci à MyPlannings.css */
+
+.page-header-plannings {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  padding: 2rem 0;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
+  overflow: hidden;
+  margin-top: 40px
+}
+
+.page-header-plannings::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: pulse 15s infinite linear;
+}
+
+.page-title-plannings {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
+
+
+/* Animation pulse si elle n'existe pas déjà */
+@keyframes pulse {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #2d3748;
+  position: relative;
+  padding-bottom: 1rem;
+  margin-top: 30px;
+}
+
+
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  background-color: #f8fafc;
+  border-radius: 12px;
+  color: #64748b;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Liste des plannings */
+.plannings-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* ⬅️ Maximum 3 cartes verticales */
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.planning-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  animation: fadeIn 0.5s ease forwards;
+  width: 350px;
+}
+
+.planning-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.card-header {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #9F7AEA 0%, #667EEA 100%);
+  color: white;
+  transition: all 0.3s ease;
+  height: 80px;
+
+}
+
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-meta {
+  display: flex;
+  justify-content: center;
+  /* Centrer le groupe horizontalement */
+  flex-wrap: wrap;
+  /* Permettre le retour à la ligne si nécessaire */
+  gap: 1rem;
+  /* Espacement entre date et jours */
+  margin-bottom: 1rem;
+  color: #64748b;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.card-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.subjects-list {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #e2e8f0;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.subjects-label {
+  font-weight: 600;
+  color: #4f46e5;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.subjects-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0 1.5rem 1.5rem;
+  width: 100%;
+  /* S'assure que la div prend toute la largeur */
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Ajouté pour centrer horizontalement */
+  border: none;
+  gap: 0.4rem;
+  width: 100%;
+  /* Prend toute la largeur disponible */
+  flex: 1;
+  /* Permet aux boutons de partager l'espace équitablement */
+}
+
+.btn-view {
+  background-color: #6366f1;
+  /* Indigo plus clair */
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-view:hover {
+  background-color: #818cf8;
+  /* Indigo encore plus clair au survol */
+  transform: translateY(-1px);
+  /* Effet de léger soulèvement */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Ombre subtile */
+}
+
+.btn-delete {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  transition: all 0.3s ease;
+
+}
+
+.btn-delete:hover {
+  background-color: #fee2e2;
+  transform: translateY(-1px);
+  /* Effet de léger soulèvement */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Ombre subtile */
+}
+
+/* Animation de chargement */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .plannings-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .plannings-list {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+}
+
+/* Ajoutez ces styles à votre fichier MyPlannings.css */
+
+.cards-icon {
+  color: white;
+  margin-right: 0.5rem;
+}
+
+.meta-icon {
+  color: #667eea;
+  margin-right: 0.3rem;
+}
+
+.subject-icon {
+  color: #4f46e5;
+  margin-right: 0.3rem;
+}
+
+/* Pour les boutons */
+.btn svg {
+  margin-right: 0.4rem;
+}
+
+/* Optionnel: Animation au survol des icônes */
+.cards-icon,
+.meta-icon,
+.subject-icon {
+  transition: transform 0.2s ease;
+}
+
+.cards-icon:hover,
+.meta-icon:hover,
+.subject-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Style pour le conteneur du bouton */
+.plan-button-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+/* Nouveau style pour le bouton Planifier */
+.plan-button {
+  /* Vert moderne */
+  color: white;
+  padding: 0.7rem 1.8rem;
+  /* Ajustement du padding */
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: none;
+  height: auto;
+  line-height: 1.5;
+  width: auto;
+  /* Largeur automatique selon le contenu */
+}
+
+.plan-button:hover {
+  background: linear-gradient(135deg, #059669, #10b981);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+}
+
+/* Animation de lueur subtile */
+@keyframes button-glow {
+  0% {
+    box-shadow: 0 0 5px rgba(16, 185, 129, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+  }
+
+  100% {
+    box-shadow: 0 0 5px rgba(16, 185, 129, 0.4);
+  }
+}
+
+.plan-button:hover {
+  animation: button-glow 2s infinite;
+}
+
+.loading-circle {
+  width: 70px;
+  height: 70px;
+  border: 5px solid #ddd;
+  border-top: 5px solid #6366f1;
+  border-radius: 50%;
+  margin-right: 16px;
+  animation: spin 1s linear infinite;
+}
+.loading-text {
+  font-size: 2rem;
+  color: #4b5563;
+  font-weight: 500;
+  margin-left: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.highlight-groq {
+  color: #7c3aed; /* violet foncé */
+  font-weight: 600;
+}
+
+.highlight-llama {
+  color: #0ea5e9; /* bleu cyan */
+  font-weight: 600;
+}

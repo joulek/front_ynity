@@ -1,0 +1,160 @@
+/* src/pages/styles/ExamPage.css */
+
+.exam-container {
+  min-height: 100vh;
+  background: linear-gradient(to right, #e0f2fe, #f0f9ff);
+  font-family: 'Inter', sans-serif;
+  width: 1100px;
+}
+
+.exam-card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  margin-top: 2rem;
+  animation: fadeIn 0.8s ease;
+}
+
+.exam-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.exam-desc {
+  color: #64748b;
+  margin-bottom: 2rem;
+}
+
+.question-block {
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.question-block:hover {
+  transform: scale(1.01);
+}
+
+.question-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.question-index {
+  background: #c7d2fe;
+  color: #4338ca;
+  font-weight: bold;
+  border-radius: 9999px;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.radio-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio-dot.selected {
+  border-color: #6366f1;
+  background-color: #eef2ff;
+}
+
+.radio-dot.selected::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: #6366f1;
+  border-radius: 50%;
+}
+
+.radio-text {
+  color: #475569;
+}
+
+.radio-option:hover .radio-text {
+  color: #4f46e5;
+}
+
+.textarea-answer {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  resize: vertical;
+  outline: none;
+  transition: border 0.2s ease;
+  background-color: white;
+  color: black;
+}
+
+.textarea-answer:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.submit-button {
+  /* Styles existants */
+  position: relative;
+  min-width: 160px; /* Largeur minimale fixe */
+  height: 42px; /* Hauteur fixe */
+  transition: all 0.2s ease;
+}
+
+.submit-spinner {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Optionnel: pour un alignement parfait */
+.submit-button.submitting {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.submit-button:hover {
+  background-color: #4338ca;
+  box-shadow: 0 12px 24px rgba(67, 56, 202, 0.3);
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
