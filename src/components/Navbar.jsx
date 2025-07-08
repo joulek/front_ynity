@@ -16,6 +16,7 @@ export default function Navbar() {
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/notifications/ui`, {
+      method: "GET",
       credentials: "include",
     })
       .then((res) => res.json())
