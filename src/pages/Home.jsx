@@ -172,21 +172,21 @@ function Home() {
             {[{
               name: "Yosr Joulek",
               role: "Software Developer",
-              description: "A creative mind behind YnityLearn, Yosr brings innovative thinking and a deep passion for education. Her leadership and design vision shape a user-friendly learning experience for all.\n🔸 Educational strategist • UI/UX visionary • Co-founder of YnityLearn",
+              description: "A creative mind behind YnityLearn, Yosr brings innovative thinking and a deep passion for education. Her leadership and design vision shape a user-friendly learning experience for all.<br />🔸 Educational strategist • UI/UX visionary • Co-founder of YnityLearn",
               img: teamMember1,
-              },
-              {
-                name: "Nourhene Abbes",
-                role: "Software Developer",
-                description: "An AI-driven developer, Nourhene is the architect of YnityLearn’s intelligent features. From flashcard generation to real-time coaching, she powers the AI that personalizes every student's journey.\n🔸 AI expert • Backend & logic engineer • Co-founder of YnityLearn",
-                img: teamMember2,
-              },
-              {
-                name: "Hounaida Moalla ",
-                role: "Associate Professor",
-                description: "Expert in Computer Systems, specialized in AI (Machine Learning, Deep Learning, Generative AI). Certified in Java, Python (Microsoft), Deep Learning & Generative AI (NVIDIA), and ML (CDOSS). Currently leading research on AI applications in cardiology, including stenosis detection using deep learning and generative models.",
-                img: teamMember3,
-              },
+            },
+            {
+              name: "Nourhene Abbes",
+              role: "Software Developer",
+              description: `An AI-driven developer, Nourhene is the architect of YnityLearn’s intelligent features. From flashcard generation to real-time coaching, she powers the AI that personalizes every student's journey.<br />🔸 AI expert • Backend & logic engineer • Co-founder of YnityLearn`,
+              img: teamMember2,
+            },
+            {
+              name: "Hounaida Moalla ",
+              role: "Associate Professor",
+              description: `Expert in Computer Systems, specialized in AI (Machine Learning, Deep Learning, Generative AI). Certified in Java, Python (Microsoft), Deep Learning & Generative AI (NVIDIA), and ML (CDOSS). Currently leading research on AI applications in cardiology, including stenosis detection using deep learning and generative models.`,
+              img: teamMember3,
+            },
             ].map((member, idx) => (
               <motion.div
                 key={idx}
