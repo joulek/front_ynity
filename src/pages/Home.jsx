@@ -203,7 +203,7 @@ function Home() {
                 <div className="team-content-circle">
                   <h3>{member.name}</h3>
                   <p className="team-role-circle">{member.role}</p>
-                  <p className="team-description-circle">{member.description}</p>
+                  <p dangerouslySetInnerHTML={{ __html: member.description }} />
                 </div>
               </motion.div>
             ))}
