@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import backgroundImage from "../assets/auth-bg-5.jpg";
-import logo from "../assets/logo_2_sans_bg.png";
+import logo from "../assets/logo_final_sansbg.png";
 
 function ResetPassword() {
   const { token } = useParams();

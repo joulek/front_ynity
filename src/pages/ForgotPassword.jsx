@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import backgroundImage from "../assets/auth-bg-5.jpg";
-import logo from "../assets/logo_2_sans_bg.png";
+import logo from "../assets/logo_final_sansbg.png";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
