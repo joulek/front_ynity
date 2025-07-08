@@ -169,17 +169,16 @@ function Home() {
             </div>
           </motion.div>
           <div className="team-grid-circle">
-            {[
-              {
-                name: "Yosr Joulek",
-                role: "Software Developer",
-                description: "An educational visionary, Yosr leads YnityLearn with a passion for innovation.",
-                img: teamMember1,
+            {[{
+              name: "Yosr Joulek",
+              role: "Software Developer",
+              description: "A creative mind behind YnityLearn, Yosr brings innovative thinking and a deep passion for education. Her leadership and design vision shape a user-friendly learning experience for all.\n🔸 Educational strategist • UI/UX visionary • Co-founder of YnityLearn",
+              img: teamMember1,
               },
               {
                 name: "Nourhene Abbes",
                 role: "Software Developer",
-                description: "AI expert, Nourhene builds the technologies that power smart learning.",
+                description: "An AI-driven developer, Nourhene is the architect of YnityLearn’s intelligent features. From flashcard generation to real-time coaching, she powers the AI that personalizes every student's journey.\n🔸 AI expert • Backend & logic engineer • Co-founder of YnityLearn",
                 img: teamMember2,
               },
               {
