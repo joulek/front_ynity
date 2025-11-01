@@ -1,0 +1,207 @@
+/* src/pages/styles/SettingsPage.css */
+
+/* ---------- Variables ---------- */
+:root {
+  --accent: #6366f1;
+  --accent2: #a855f7;
+  --text-dark: #0f172a;
+  --text-light: #f1f5f9;
+}
+
+[data-theme="light"] {
+  --page-bg: #ffffff;
+  --row-bg: rgba(0, 0, 0, 0.06);
+  --text: var(--text-dark);
+  --shadow: rgba(0, 0, 0, 0.12);
+}
+[data-theme="dark"] {
+  --page-bg: #0f172a;
+  --row-bg: rgba(255, 255, 255, 0.08);
+  --text: var(--text-light);
+  --shadow: rgba(0, 0, 0, 0.45);
+}
+
+/* ---------- Conteneur global ---------- */
+.settings-shell {
+  max-width: 720px;                 /* ✅ limite la largeur */
+  margin: 0 auto;
+  padding: 5rem 1rem 3rem;          /* marge haute pour respirer sous la nav */
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  font-family: "Inter", sans-serif;
+
+  min-height: calc(100vh - 64px);   /* 64px ≈ navbar */
+  transition: background 0.4s ease;
+}
+
+/* ---------- Titre ---------- */
+.settings-heading {
+  text-align: center;
+  font-size: clamp(2rem, 4vw + 0.5rem, 3rem);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.5px;
+  text-shadow: 0 6px 18px var(--shadow);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------- Sections (langue / thème) ---------- */
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   /* ✅ label gauche / contrôle droite */
+  gap: 1.2rem;
+  background: var(--row-bg);
+  backdrop-filter: blur(6px);
+  padding: 1rem 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.row-label {
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* ---------- Pastilles langues ---------- */
+.pill-group {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.48rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--text-dark);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+[data-theme="dark"] .pill {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--text-light);
+}
+.pill:hover { transform: translateY(-2px); }
+.pill.active {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 6px 16px var(--shadow);
+}
+
+/* ---------- Toggle Thème ---------- */
+.toggle-slider {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.15);
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+[data-theme="dark"] .toggle-slider {
+  background: rgba(255, 255, 255, 0.25);
+}
+.thumb {
+  position: absolute;
+  top: 4px; left: 4px;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  display: grid; place-items: center;
+  transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+  color: #facc15;
+}
+.move { transform: translateX(26px); color: #e2e8f0; }
+
+/* ---------- Actions rapides ---------- */
+.quick-actions {
+  display: flex;
+  justify-content: center;          /* ✅ centrage horizontal */
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.6rem;
+  background: transparent;
+  border: 2px solid var(--row-bg);
+  border-radius: 16px;
+  font-weight: 600;
+  color: var(--text);
+  transition: transform 0.25s, border-color 0.25s;
+}
+.action-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  border-color: var(--accent);
+}
+/* ---------- Notifications section ---------- */
+.notif-toggles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.notif-switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.notif-switch input {
+  display: none;
+}
+
+.notif-slider {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 9999px;
+  transition: background 0.3s ease;
+}
+
+.notif-slider::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.notif-switch input:checked + .notif-label + .notif-slider {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+}
+.notif-switch input:checked + .notif-label + .notif-slider::before {
+  transform: translateX(22px);
+}
+
+.notif-label {
+  flex: 1;
+}
+
