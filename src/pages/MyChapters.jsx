@@ -13,21 +13,49 @@ export default function MyChapters() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/ai/chapters", { withCredentials: true });
+        const res = await axios.get("http://localhost:5000/api/ai/chapters", {
+          withCredentials: true,
+        });
         setChapters(res.data);
-      } catch (e) { console.error(e); }
+      } catch (e) {
+        console.error(e);
+      }
     })();
   }, []);
+  const deleteChapter = async (id) => {
+    const confirmDelete = window.confirm("🗑️ Delete this chapter?");
+    if (!confirmDelete) return;
+
+    try {
+      await axios.delete(`http://localhost:5000/api/ai/chapter/${id}`, {
+        withCredentials: true,
+      });
+
+      // Remove from UI
+      setChapters(chapters.filter((c) => c._id !== id));
+    } catch (error) {
+      alert("❌ Failed to delete");
+      console.error(error);
+    }
+  };
 
   const generateChapter = async () => {
     if (!description.trim()) return alert("Please enter a chapter topic");
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/api/ai/chapter", { description }, { withCredentials: true });
+      const res = await axios.post(
+        "http://localhost:5000/api/ai/chapter",
+        { description },
+        { withCredentials: true }
+      );
       const chapterId = res.data.data._id;
-      setShowModal(false); setDescription("");
+      setShowModal(false);
+      setDescription("");
       window.location.href = `/chapter/${chapterId}`;
-    } catch (e) { console.error(e); alert("❌ Error generating chapter"); }
+    } catch (e) {
+      console.error(e);
+      alert("❌ Error generating chapter");
+    }
     setLoading(false);
   };
 
@@ -48,15 +76,32 @@ export default function MyChapters() {
           {chapters.map((c) => (
             <div key={c._id} className="chapter-card">
               <div className="chapter-title">{c.description}</div>
-              <div className="chapter-date">{new Date(c.createdAt).toLocaleDateString()}</div>
-              <Link to={`/chapter/${c._id}`} className="card-action">👁️ View</Link>
+              <div className="chapter-date">
+                {new Date(c.createdAt).toLocaleDateString()}
+              </div>
+
+              <div className="card-actions">
+                <Link to={`/chapter/${c._id}`} className="card-action view-btn">
+                  👁️ View
+                </Link>
+
+                <button
+                  className="card-action delete-btn"
+                  onClick={() => deleteChapter(c._id)}
+                >
+                  🗑️ Delete
+                </button>
+              </div>
             </div>
           ))}
 
           {chapters.length === 0 && (
             <div className="empty">
-              😌 No chapters generated yet<br/>
-              <button className="cta" onClick={() => setShowModal(true)}>Generate your first chapter</button>
+              😌 No chapters generated yet
+              <br />
+              <button className="cta" onClick={() => setShowModal(true)}>
+                Generate your first chapter
+              </button>
             </div>
           )}
         </div>
@@ -72,8 +117,17 @@ export default function MyChapters() {
               onChange={(e) => setDescription(e.target.value)}
             />
             <div className="btns">
-              <button className="btn-grad cancel" onClick={() => setShowModal(false)}>Cancel</button>
-              <button className="btn-grad" disabled={loading} onClick={generateChapter}>
+              <button
+                className="btn-grad cancel"
+                onClick={() => setShowModal(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="btn-grad"
+                disabled={loading}
+                onClick={generateChapter}
+              >
                 {loading ? "⏳ Generating..." : "✨ Generate"}
               </button>
             </div>

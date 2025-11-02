@@ -85,3 +85,57 @@
   border-radius:5px;
   font-size:.9rem;
 }
+
+
+.chapter-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+}
+
+.btn-export {
+  background: linear-gradient(to right, #6a5af9, #7f4eff);
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn-export:hover {
+  opacity: 0.9;
+}
+#chapter-content {
+  background: white;
+  padding: 25px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #1a1a1a;
+}
+
+#chapter-content h1, 
+#chapter-content h2, 
+#chapter-content h3 {
+  margin-top: 18px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+#chapter-content p {
+  margin-bottom: 12px;
+}
+
+#chapter-content ul {
+  margin-left: 20px;
+  list-style: disc;
+}
+
+#chapter-content strong {
+  color: #5b3df5;
+}
+
+#chapter-content img {
+  max-width: 100%;
+}

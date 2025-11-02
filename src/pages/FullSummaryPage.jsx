@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useEffect, useState, useRef } from "react";
+import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { FiArrowLeft, FiBookmark, FiPrinter, FiDownload, FiAward } from "react-icons/fi";
+import { FiDownload, FiAward } from "react-icons/fi";
 import "../pages/styles/FullSummaryPage.css";
 import Navbar from "../components/Navbar";
+import html2pdf from "html2pdf.js";
 
 export default function CourseFullSummary() {
   const { id } = useParams();
-  const navigate = useNavigate();
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [showMotivation, setShowMotivation] = useState(true);
+
+  const contentRef = useRef(null);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/course/${id}/summary`, {
@@ -32,16 +34,27 @@ export default function CourseFullSummary() {
       });
   }, [id]);
 
-  const handlePrint = () => {
-    window.print();
-  };
+  const exportPDF = () => {
+    const element = contentRef.current;
 
-  const handleSave = () => {
-    alert("Summary saved to your favorites!");
-  };
+    const opt = {
+      filename: `${course.title}-summary.pdf`,
+      image: { type: "jpeg", quality: 0.95 },
+      html2canvas: {
+        scale: 3,
+        useCORS: true,
+      },
+      jsPDF: {
+        unit: "mm",
+        format: "a4",
+        orientation: "portrait",
+      },
+      pagebreak: {
+        mode: ["avoid-all", "css", "legacy"],
+      },
+    };
 
-  const handleDownload = () => {
-    alert("Downloading summary as PDF!");
+    html2pdf().set(opt).from(element).save();
   };
 
   if (loading) return <div className="p-8">Loading…</div>;
@@ -50,36 +63,33 @@ export default function CourseFullSummary() {
   return (
     <div className="summary-container">
       <Navbar />
+
       <div className="summary-header">
-        <h1 className="mysummary-title">Summary: <strong>{course.title}</strong></h1>
+        <h1 className="mysummary-title">
+          📘 Summary: <strong>{course.title}</strong>
+        </h1>
       </div>
 
-      <div className="summary-content">
+      {/* ✅ نفس style متاع UI visible و PDF */}
+      <div className="summary-content" id="pdf-wrapper" ref={contentRef}>
         <div className="summary-markdown">
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            components={{
-              h2: ({ node, ...props }) => <h2 {...props} />,
-              h3: ({ node, ...props }) => <h3 {...props} />,
-              strong: ({ node, ...props }) => <strong {...props} />,
-              li: ({ node, ...props }) => <li {...props} />,
-              p: ({ node, ...props }) => <p {...props} />,
-              blockquote: ({ node, ...props }) => <blockquote {...props} />,
-            }}
-          >
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
             {course.summaryText}
           </ReactMarkdown>
         </div>
+      </div>
 
-        <div className="action-buttons">
-          <button onClick={handlePrint} className="action-btn secondary-btn">
-            <FiPrinter /> Print
-          </button>
-        </div>
+      <div className="action-buttons">
+        <button onClick={exportPDF} className="action-btn primary-btn">
+          <FiDownload /> Export PDF
+        </button>
       </div>
 
       {showMotivation && (
-        <div className="motivation-badge" onClick={() => setShowMotivation(false)}>
+        <div
+          className="motivation-badge"
+          onClick={() => setShowMotivation(false)}
+        >
           <FiAward /> You can do it! 💪
         </div>
       )}
