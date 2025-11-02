@@ -324,8 +324,6 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(2px);
   z-index: 997;
 }
 
@@ -559,4 +557,278 @@
     opacity: 1;
     transform: scale(1);
   }
+}
+.nav-item-group {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-item-group .nav-link {
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.dropdown-panel {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  background: white;
+  padding: 12px 0;
+  min-width: 210px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.10);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: 0.25s ease;
+  z-index: 999;
+}
+
+.dropdown-panel.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-panel .dropdown-item {
+  display: block;
+  padding: 10px 18px;
+  font-size: 0.92rem;
+  color: #333;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.dropdown-panel .dropdown-item:hover {
+  background: #eef2ff;
+  color: #3a0ca3;
+  font-weight: 600;
+  padding-left: 24px;
+}
+/* ✅ Mobile hamburger button styling */
+.hamburger {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.7);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  transition: .25s;
+}
+
+.hamburger svg {
+  color: #4338ca;
+}
+
+.hamburger:hover {
+  background: rgba(255,255,255,0.95);
+  transform: scale(1.08);
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: -320px;
+  width: 320px;
+  background: #fff;
+  box-shadow: -6px 0 20px rgba(0,0,0,0.1);
+  padding: 5rem 2rem 2rem;
+  transition: right .3s ease-in-out;
+  z-index: 5000; /* ⬆️ HIGHER than backdrop */
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto; /* ✅ Allow clicks inside drawer */
+}
+
+/* ✅ Prevent drawer overlay from blocking page clicks */
+.backdrop {
+  background: rgba(0,0,0,0.1);
+  backdrop-filter: blur(2px);
+  pointer-events: auto;
+}
+
+body.menu-open {
+  overflow: hidden; /* ⛔ prevent page scroll while open */
+}
+
+
+.mobile-drawer.open {
+  right: 0;
+}
+
+.mobile-nav a {
+  display: block;
+  padding: 12px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--clr-gray);
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+
+  z-index: 900;
+}
+
+/* ✅ Hamburger reset */
+.hamburger {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 4px;
+  display: none;
+}
+
+/* ✅ Force icon color */
+.hamburger svg {
+  color: #4338ca !important;
+  stroke: #4338ca !important;
+  stroke-width: 2 !important;
+}
+
+/* ✅ Mobile behavior */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-container {
+    width: 100% !important;
+    padding: 0.7rem 1rem !important;
+  }
+
+  .navbar-actions {
+    display: flex !important;
+    align-items: center;
+    gap: 0.7rem;
+    margin-left: 245px;
+  }
+
+  /* hide profile, keep bell + menu ONLY */
+  .user-profile,
+  .username,
+  .login-button {
+    display: none !important;
+  }
+
+  .notification-icon {
+    display: flex !important;
+  }
+}
+
+/* ✅ Drawer becomes full height & flex */
+.mobile-drawer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* push footer down */
+  height: 100vh;
+}
+
+/* ✅ Footer sticks at bottom */
+.mobile-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+/* ✅ Style logout area clean */
+.mobile-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mobile-logout {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 10px;
+  background: #ffecec;
+  color: #ef4444;
+  font-weight: 600;
+  border: none;
+}
+
+.mobile-logout:hover {
+  background: #ffdbdb;
+}
+/* ✅ Welcome text inside drawer */
+.mobile-welcome {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4338ca;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-left: 8px;
+}
+
+/* ✅ Drawer full height to push footer down */
+.mobile-drawer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+/* ✅ Footer in mobile menu */
+.mobile-footer {
+  margin-top: auto;
+  padding-top: 1.2rem;
+  border-top: 1px solid #eee;
+}
+
+.mobile-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+/* NOTIF DROPDOWN FIX */
+.notification-icon, .notif-dropdown {
+  position: relative;
+  z-index: 2000 !important;
+}
+
+.notif-dropdown {
+  pointer-events: auto;
+  z-index: 5000 !important;
+  margin-top: 8px;
+  border: 1px solid #eee;
+}
+
+/* Menu button above dropdown */
+.hamburger {
+  z-index: 6000 !important;
+}
+
+/* Backdrop lower to not block notif */
+.backdrop {
+  z-index: 4000 !important;
+}
+/* ✅ Fix notif dropdown positioning */
+.notif-wrapper {
+  position: relative;
+}
+
+.notif-dropdown {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: white;
+  width: 260px;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+  z-index: 3000;
 }

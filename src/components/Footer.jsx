@@ -1,6 +1,7 @@
+import { FiGithub, FiMail } from "react-icons/fi";
+import "../components/Footer.css";
 import { motion } from "framer-motion";
-import { FiGithub, FiMail, FiFigma, FiTwitter, FiLinkedin } from "react-icons/fi";
-import "./Footer.css";
+
 
 const Footer = () => {
   const socialLinks = [
@@ -22,15 +23,15 @@ const Footer = () => {
 
       <div className="footer-content">
         <div className="footer-columns">
-          {/* Navigation column */}
+          
+          {/* Navigation */}
           <div className="footer-column">
             <motion.h3 whileHover={{ x: 5 }} className="footer-title navigation-title">
               Navigation
             </motion.h3>
             <ul className="footer-links">
               {[
-                { name: 'Home', path: '/home' },
-                { name: 'Features', path: '/features' },
+                { name: "Home", path: "/home" },
               ].map((item) => (
                 <motion.li whileHover={{ x: 5 }} key={item.name} className="footer-link-item">
                   <a href={item.path} className="footer-link">
@@ -41,27 +42,27 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Resources column */}
+          {/* Product / EdTech Section */}
           <div className="footer-column">
             <motion.h3 whileHover={{ x: 5 }} className="footer-title resources-title">
-              Resources
+              Product / EdTech
             </motion.h3>
             <ul className="footer-links">
               {[
-                { name: 'API', path: '/api' },
-                { name: 'Tracking Usage', path: '/UsageTracking' },
-
+                "AI Study Assistant",
+                "Flashcards",
+                "Summaries & Exams",
+                "ProgressTracker",
+                "IA Education",
               ].map((item) => (
-                <motion.li whileHover={{ x: 5 }} key={item.name} className="footer-link-item">
-                  <a href={item.path} className="footer-link">
-                    {item.name}
-                  </a>
+                <motion.li whileHover={{ x: 5 }} key={item} className="footer-link-item">
+                  <span className="footer-link">{item}</span>
                 </motion.li>
               ))}
             </ul>
           </div>
 
-          {/* Contact column */}
+          {/* Contact */}
           <div className="footer-column">
             <motion.h3 whileHover={{ x: 5 }} className="footer-title contact-title">
               Contact Us
@@ -92,10 +93,31 @@ const Footer = () => {
             © {new Date().getFullYear()} YnityLearn. All rights reserved.
           </p>
 
+          <p className="made-by">
+  Made with ❤️ by 
+  <a 
+    href="https://www.linkedin.com/in/yosr-joulek" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="highlight footer-name-link"
+  >
+    &nbsp;Yosr
+  </a> 
+  &nbsp;&amp;&nbsp; 
+  <a 
+    href="https://www.linkedin.com/in/nourhene-abbes-3179b4226/" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="highlight footer-name-link"
+  >
+    Nourhene
+  </a>
+</p>
+
         </div>
       </div>
     </footer>
   );
 };
 
-export default Footer;
+export default Footer; 

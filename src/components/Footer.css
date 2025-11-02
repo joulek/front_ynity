@@ -1,4 +1,3 @@
-/* Styles de base */
 .footer-container {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   padding: 3rem 0 1.5rem;
@@ -163,4 +162,28 @@
   .footer-columns {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.made-by {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.made-by .highlight {
+  background: linear-gradient(90deg, #f97316 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 600;
+}  
+
+
+.footer-name-link {
+  color: var(--primary-color, #6c63ff);
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+}
+
+.footer-name-link:hover {
+  text-decoration: underline;
+  filter: brightness(1.2);
 }

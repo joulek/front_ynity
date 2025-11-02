@@ -32,9 +32,7 @@ import CreateRoomAutoWrapper from "./pages/CreateRoomAutoWrapper";
 import LiveLobby from "./pages/LiveLobby";
 import LiveGame from "./pages/LiveGame";
 import JoinRoomOnlyId from "./pages/JoinRoomOnlyId";
-import UsageTracking from "./pages/UsageTracking";
-import Features from "./pages/Features";
-import APIs from "./pages/APIs";
+
 
 function App() {
   return (
@@ -74,7 +72,6 @@ function App() {
         <Route path="/exam/:id/result" element={<ExamResult />} />
         <Route path="/my-summaries" element={<AllSummaries />} />
         <Route path="/my-exams" element={<MyExams />} />
-        <Route path="/UsageTracking" element={<UsageTracking />} />
         {/* Live Quiz */}
         <Route path="/select-course" element={<CourseSelection />} />
         <Route path="/create-room" element={<CreateRoomAutoWrapper />} />
@@ -85,10 +82,6 @@ function App() {
         {/* Chatbot */}
         <Route path="/chatbot" element={<Chatbot />} />
 
-
-
-        <Route path="/features" element={<Features />} />
-        <Route path="/api" element={<APIs />} />
 
       </Routes>
     </Router>
