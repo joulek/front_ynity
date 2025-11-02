@@ -10,7 +10,7 @@ import {
   FiPlus,
 } from "react-icons/fi";
 import { motion } from "framer-motion";
-import Swal from "sweetalert2"; // 🔥 Ajouter tout en haut du fichier
+import Swal from "sweetalert2";
 
 export default function AllSummaries() {
   const [summaries, setSummaries] = useState([]);
@@ -76,20 +76,12 @@ export default function AllSummaries() {
     return (
       <div className="loading-screen">
         <motion.div
-          animate={{
-            rotate: 360,
-          }}
-          transition={{
-            duration: 1,
-            repeat: Infinity,
-            ease: "linear",
-          }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
           className="loading-circle"
         />
         <p className="loading-text">
-          🧠 Our AI, powered by <span className="highlight-groq">Groq</span> and
-          the <span className="highlight-llama">LLaMA&nbsp;3</span> model,
-          <br /> is analyzing your revision data...
+          🧠 Our AI is analyzing your revision data...
         </p>
       </div>
     );
@@ -105,7 +97,6 @@ export default function AllSummaries() {
 
       {summaries.length === 0 ? (
         <div className="mysummaries-empty">
-          <div className="mysummaries-empty-illustration"></div>
           <p>No summaries generated yet.</p>
           <button
             onClick={() => navigate("/courses")}
@@ -122,18 +113,16 @@ export default function AllSummaries() {
                 <h2 className="mysummaries-title">{c.title}</h2>
                 <p className="mysummaries-date">
                   <FiClock />{" "}
-                  {new Date(c.updatedAt || c.createdAt).toLocaleString(
-                    "en-GB",
-                    {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    }
-                  )}
+                  {new Date(c.updatedAt || c.createdAt).toLocaleString("en-GB", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
                 </p>
               </div>
+
               <div className="mysummaries-actions">
                 <button
                   onClick={() => navigate(`/courses/${c._id}/full-summary`)}
@@ -141,12 +130,14 @@ export default function AllSummaries() {
                 >
                   <FiBookOpen /> Open
                 </button>
+
                 <button
                   onClick={() => handleDelete(c._id)}
                   className="mysummaries-action-btn mysummaries-delete-btn"
                 >
                   <FiTrash2 /> Delete
                 </button>
+
                 {c.summaryPdf && (
                   <a
                     href={`${import.meta.env.VITE_BACKEND_URL}/${c.summaryPdf}`}

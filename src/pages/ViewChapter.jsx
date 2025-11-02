@@ -5,40 +5,68 @@ import Navbar from "../components/Navbar";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
+// ✅ import CSS file
+import "./styles/ViewChapter.css";
+
 export default function ViewChapter() {
   const { id } = useParams();
   const [chapter, setChapter] = useState(null);
 
   useEffect(() => {
     const fetchChapter = async () => {
-      const res = await axios.get(`http://localhost:5000/api/ai/chapters`, {
-        withCredentials: true
-      });
-      const found = res.data.find((c) => c._id === id);
-      setChapter(found);
+      try {
+        const res = await axios.get("http://localhost:5000/api/ai/chapters", {
+          withCredentials: true,
+        });
+
+        const found = res.data.find((c) => c._id === id);
+        setChapter(found);
+      } catch (e) {
+        console.error("Error fetching chapter:", e);
+      }
     };
 
     fetchChapter();
   }, [id]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#eef3ff] to-[#f2f5ff]">
+    <div className="chapter-page">
       <Navbar />
 
-      <div className="max-w-4xl mx-auto px-6 py-12">
-        {chapter && (
-          <div className="bg-white p-8 rounded-2xl shadow-xl border-l-4 border-blue-500">
-            <h2 className="text-2xl font-bold text-purple-700 mb-4">
-              {chapter.description}
-            </h2>
+      <div className="chapter-container">
+        
+        {/* ✅ Gradient Title */}
+        <h1 className="chapter-title-banner">
+          Chapter: {chapter?.description}
+        </h1>
 
-            <div className="prose text-gray-800 overflow-y-auto max-h-[600px]">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {chapter.chapterContent}
+        {/* ✅ Styled Chapter Content */}
+        {chapter && (
+          <div className="chapter-box">
+            <div className="chapter-content">
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  h1: ({node, ...props}) => <h2 {...props} />,
+                  h2: ({node, ...props}) => <h3 {...props} />,
+                  h3: ({node, ...props}) => <h4 {...props} />,
+                  li: ({node, ...props}) => <li {...props} />,
+                  strong: ({node, ...props}) => <strong {...props} />,
+                }}
+              >
+                {chapter?.chapterContent}
               </ReactMarkdown>
             </div>
           </div>
         )}
+
+        {/* ✅ If chapter not found */}
+        {!chapter && (
+          <p style={{ textAlign: "center", marginTop: "20px", color: "#777" }}>
+            loading...
+          </p>
+        )}
+
       </div>
     </div>
   );

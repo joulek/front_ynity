@@ -38,9 +38,6 @@ import LiveLobby from "./pages/LiveLobby";
 import LiveGame from "./pages/LiveGame";
 import JoinRoomOnlyId from "./pages/JoinRoomOnlyId";
 
-import UsageTracking from "./pages/UsageTracking";
-import Features from "./pages/Features";
-import APIs from "./pages/APIs";
 import ChapterGenerator from "./pages/ChapterGenerator";
 import MyChapters from "./pages/MyChapters";
 import ViewChapter from "./pages/ViewChapter";
@@ -107,9 +104,6 @@ function App() {
         {/* Chatbot */}
         <Route path="/chatbot" element={<Chatbot />} />
 
-
-        <Route path="/features" element={<Features />} />
-        <Route path="/api" element={<APIs />} />
 
 
       </Routes>

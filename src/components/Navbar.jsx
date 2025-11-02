@@ -49,7 +49,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // ✅ CLOSE NOTIF WHEN CLICK OUTSIDE
   useEffect(() => {
     const close = (e) => {
       if (!document.querySelector(".notification-icon")?.contains(e.target)) {
@@ -60,7 +59,6 @@ export default function Navbar() {
     return () => document.removeEventListener("click", close);
   }, []);
 
-  // ✅ CLOSE NOTIF WHEN OPEN MOBILE MENU
   useEffect(() => {
     if (mobileOpen) setShowNotif(false);
   }, [mobileOpen]);
@@ -88,10 +86,27 @@ export default function Navbar() {
             {user && (
               <>
                 <NavLink to="/Subjects">Subjects</NavLink>
-                <NavLink to="/planning/all">My Schedules</NavLink>
+
+                {/* ✅ My Chapters as its own section */}
+                <NavLink to="/my-chapters">My AI Chapters</NavLink>
+
+                {/* ✅ Services DROPDOWN */}
+                <div
+                  className="nav-item-group"
+                  onMouseEnter={() => setOpenDropdown("services")}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
+                  <span className={`nav-link ${openDropdown === "services" ? "active" : ""}`}>
+                    Services
+                  </span>
+                  <div className={`dropdown-panel ${openDropdown === "services" ? "show" : ""}`}>
+                    <Link to="/planning/all" className="dropdown-item">📅 My Schedules</Link>
+                    <Link to="/my-summaries" className="dropdown-item">📝 My Summaries</Link>
+                    <Link to="/my-exams" className="dropdown-item">✅ My Exams</Link>
+                  </div>
+                </div>
+
                 <NavLink to="/chatbot">Assistant IA</NavLink>
-                <NavLink to="/my-summaries">My Summaries</NavLink>
-                <NavLink to="/my-exams">My Exams</NavLink>
 
                 <div
                   className="nav-item-group"
@@ -125,11 +140,12 @@ export default function Navbar() {
           </nav>
 
           <div className="navbar-actions">
-
             {user && (
               <div className="notification-icon" onClick={() => setShowNotif(!showNotif)}>
                 <Bell />
-                {notifications.length > 0 && <span className="notif-badge">{notifications.length}</span>}
+                {notifications.length > 0 && (
+                  <span className="notif-badge">{notifications.length}</span>
+                )}
               </div>
             )}
 
@@ -186,7 +202,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* ✅ Mobile Drawer */}
+      {/* ✅ MOBILE DRAWER */}
       <aside className={`mobile-drawer ${mobileOpen ? "open" : ""}`}>
         {user && (
           <div className="mobile-welcome">
@@ -197,10 +213,11 @@ export default function Navbar() {
         <nav className="mobile-nav">
           <NavLink to="/home">Home</NavLink>
           <NavLink to="/Subjects">Subjects</NavLink>
+          <NavLink to="/my-chapters">My AI Chapters</NavLink> {/* ✅ Added */}
           <NavLink to="/planning/all">My Schedules</NavLink>
-          <NavLink to="/chatbot">Assistant IA</NavLink>
           <NavLink to="/my-summaries">My Summaries</NavLink>
           <NavLink to="/my-exams">My Exams</NavLink>
+          <NavLink to="/chatbot">Assistant IA</NavLink>
           <NavLink to="/Progression">Subject Progress</NavLink>
           <NavLink to="/progressionRevision">Revision Progress</NavLink>
           <NavLink to="/select-course">Add Room</NavLink>
