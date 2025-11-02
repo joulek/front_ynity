@@ -118,16 +118,7 @@ export default function LiveLobby() {
           </div>
         </div>
 
-        <div className="lobby-footer">
-          <div className="footer-card">
-            <img src={trophyIcon} alt="Trophy" className="footer-icon" />
-            <p>
-              The quiz will start automatically when all players are ready.
-              <br />
-              Be the fastest to answer to earn bonus points!
-            </p>
-          </div>
-        </div>
+        
       </div>
     </div>
   );

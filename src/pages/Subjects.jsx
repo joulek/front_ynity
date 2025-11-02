@@ -7,6 +7,8 @@ import Navbar from "../components/Navbar";
 import Swal from "sweetalert2";
 import CreateCourse from "./CreateCourse";
 
+
+
 function Subjects() {
   const [subjects, setSubjects] = useState([]);
   const [filteredSubjects, setFilteredSubjects] = useState([]);
@@ -129,8 +131,7 @@ function Subjects() {
           className="loading-circle"
         />
         <p className="loading-text">
-          🧠 Our AI, powered by <span className="highlight-groq">Groq</span> and the <span className="highlight-llama">LLaMA&nbsp;3</span> model,<br />
-          is analyzing your subject data...
+          Loading...
         </p>
       </div>
     );

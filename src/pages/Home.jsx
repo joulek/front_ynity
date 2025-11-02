@@ -17,6 +17,7 @@ import summaryImg from "../assets/summary-ia-sansbg.png";
 import revisionImg from "../assets/smart-revision.png";
 import flashcardImg from "../assets/smart-flashcards.png";
 import learningImg from "../assets/ia-learning.png";
+import chapterImg from "../assets/chaptergen.png";
 
 
 
@@ -100,6 +101,11 @@ function Home() {
               title: "Progress Tracking",
               description: "With dynamic dashboards, you can visualize your learning journey through detailed charts and statistics. The system tracks your scores, study time, and activity over time, giving you clear insights into your strengths and areas for improvement. This feedback loop encourages consistency, helps set goals, and supports better decision-making as you advance.",
               img: progressImg,
+            },
+            {
+              title: "Smart Chapters",
+              description: "Our AI analyzes your course materials to create structured chapter outlines, ensuring comprehensive coverage of all topics. These smart chapters adapt to your learning pace and style, providing a personalized roadmap for your studies. This feature helps you stay organized and focused, making it easier to tackle complex subjects.",
+              img: chapterImg,
             },
             {
               title: "Smart Resources",

@@ -242,7 +242,7 @@ function Courses() {
         <div className="groq-loading-overlay">
           <div className="groq-loading-content">
             <span className="groq-spinner" />
-            <p>⏳ Groq API is generating, please wait...</p>
+            <p>Loading ... </p>
           </div>
         </div>
       )}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";  // ✅ Added
 import "./styles/MyChapters.css";
 
 export default function MyChapters() {
@@ -22,25 +23,41 @@ export default function MyChapters() {
       }
     })();
   }, []);
-  const deleteChapter = async (id) => {
-    const confirmDelete = window.confirm("🗑️ Delete this chapter?");
-    if (!confirmDelete) return;
 
+  // ✅ SWEETALERT DELETE
+  const deleteChapter = async (id) => {
+    const confirm = await Swal.fire({
+      title: "Delete this chapter?",
+      text: "This action is irreversible.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete",
+      cancelButtonText: "Cancel",
+      confirmButtonColor: "#e11d48",
+      cancelButtonColor: "#64748b",
+    });
+
+    if (!confirm.isConfirmed) return;
+
+    setLoading(true);
     try {
       await axios.delete(`http://localhost:5000/api/ai/chapter/${id}`, {
         withCredentials: true,
       });
 
-      // Remove from UI
       setChapters(chapters.filter((c) => c._id !== id));
+
+      Swal.fire("Deleted!", "The chapter has been deleted.", "success");
     } catch (error) {
-      alert("❌ Failed to delete");
+      Swal.fire("Error", "Failed to delete chapter", "error");
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
   const generateChapter = async () => {
-    if (!description.trim()) return alert("Please enter a chapter topic");
+    if (!description.trim()) return Swal.fire("Oops!", "Please enter a chapter topic", "warning");
     setLoading(true);
     try {
       const res = await axios.post(
@@ -54,7 +71,7 @@ export default function MyChapters() {
       window.location.href = `/chapter/${chapterId}`;
     } catch (e) {
       console.error(e);
-      alert("❌ Error generating chapter");
+      Swal.fire("Error", "Failed to generate chapter", "error");
     }
     setLoading(false);
   };

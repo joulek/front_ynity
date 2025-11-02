@@ -39,7 +39,7 @@ export default function CourseFullSummary() {
     alert("Fonctionnalité de téléchargement PDF à implémenter");
   };
 
-  if (loading) return <div className="p-8">Chargement…</div>;
+  if (loading) return <div className="p-8">Loading…</div>;
   if (error) return <div className="p-8 text-red-600">{error}</div>;
 
   return (

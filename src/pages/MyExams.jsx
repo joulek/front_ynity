@@ -74,7 +74,7 @@ export default function MyExams() {
           className="loading-circle"
         />
         <p className="loading-text">
-          🧠 Our AI is preparing your exams...
+          Loading...
         </p>
       </div>
     );

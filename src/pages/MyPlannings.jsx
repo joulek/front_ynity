@@ -105,7 +105,7 @@ function MyPlannings() {
           className="loading-circle"
         />
         <p className="loading-text">
-          🧠 Our AI, powered by <span className="highlight-groq">Groq</span> and the <span className="highlight-llama">LLaMA&nbsp;3</span> model,<br/> is analyzing your revision data...
+          Loading...
         </p>
       </div>
     );

@@ -121,7 +121,7 @@ function Planning() {
         <div className="loading-overlay">
           <div className="loading-content">
             <span className="spinner" />
-            <p>⏳ Groq API is generating your planning...</p>
+            <p>Loading...</p>
           </div>
         </div>
       )}

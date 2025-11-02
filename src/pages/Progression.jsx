@@ -64,7 +64,7 @@ function Progression() {
           className="loading-circle"
         />
         <p className="loading-text">
-          🧠 Our AI is analyzing your revision data...
+          Loading...
         </p>
       </div>
     );

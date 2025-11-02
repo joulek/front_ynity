@@ -9,11 +9,14 @@
 .page-header-resumes {
   text-align: center;
   margin-bottom: 3rem;
+  position: relative;
   padding: 2rem 0;
   background: linear-gradient(135deg, #4f46e5, #7c3aed);
   border-radius: 16px;
   color: white;
   box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
+  overflow: hidden;
+  margin-top: 40px;
 }
 
 .page-title-resumes {

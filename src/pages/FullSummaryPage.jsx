@@ -66,7 +66,7 @@ export default function CourseFullSummary() {
 
       <div className="summary-header">
         <h1 className="mysummary-title">
-          📘 Summary: <strong>{course.title}</strong>
+          Summary: <strong>{course.title}</strong>
         </h1>
       </div>
 
