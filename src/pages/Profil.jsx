@@ -160,15 +160,7 @@ export default function ProfilePageAlt() {
       {/* Header with colored background */}
       <div className="profile-header-alt">
         <div className="header-content">
-          <div className="avatar-wrapper">
-            {user.avatar ? (
-              <img src={user.avatar} alt="Avatar" className="main-avatar" />
-            ) : (
-              <div className="avatar-fallback">
-                {user.name.charAt(0).toUpperCase()}
-              </div>
-            )}
-          </div>
+          
           <h1>
             {formData.firstName || user.firstName} {formData.lastName || user.lastName}
           </h1>

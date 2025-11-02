@@ -69,14 +69,8 @@ export default function MyExams() {
     return (
       <div className="loading-screen">
         <motion.div
-          animate={{
-            rotate: 360,
-          }}
-          transition={{
-            duration: 1,
-            repeat: Infinity,
-            ease: "linear",
-          }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
           className="loading-circle"
         />
         <p className="loading-text">
@@ -87,12 +81,15 @@ export default function MyExams() {
       </div>
     );
   }
+
   return (
     <div className="my-exams-container">
       <Navbar />
+
       <div className="page-header-exam">
         <h1 className="page-title-exam">My Exams</h1>
       </div>
+
       <div className="exams-content">
         {exams.length === 0 ? (
           <div className="empty-state">
@@ -142,19 +139,14 @@ export default function MyExams() {
                 )}
 
                 <div className="exam-actions">
-                  <Link
-                    to={`/exam/${exam._id}`}
-                    className="action-btn view-btn"
-                  >
-                    <span className="btn-icon">👁</span>
-                    <span>View exam</span>
+                  <Link to={`/exam/${exam._id}`} className="action-btn view-btn">
+                    👁 View exam
                   </Link>
                   <button
                     onClick={() => handleDeleteExam(exam._id)}
                     className="action-btn delete-btn"
                   >
-                    <span className="btn-icon">🗑</span>
-                    <span>Delete</span>
+                    🗑 Delete
                   </button>
                 </div>
               </div>
