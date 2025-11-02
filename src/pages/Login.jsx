@@ -70,6 +70,7 @@ function Login() {
 
         if (response.ok) {
           console.log("✅ Connexion réussie :", data);
+          
           window.location.href = "/home";
         } else {
           console.error("❌ Erreur connexion :", data.message);

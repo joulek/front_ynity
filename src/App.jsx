@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 // Pages
 import Login from "./pages/Login";
@@ -35,6 +40,9 @@ import JoinRoomOnlyId from "./pages/JoinRoomOnlyId";
 import UsageTracking from "./pages/UsageTracking";
 import Features from "./pages/Features";
 import APIs from "./pages/APIs";
+import ChapterGenerator from "./pages/ChapterGenerator";
+import MyChapters from "./pages/MyChapters";
+import ViewChapter from "./pages/ViewChapter";
 
 function App() {
   return (
@@ -50,6 +58,10 @@ function App() {
         <Route path="/reset-password/:token" element={<ResetPassword />} />
 
         {/* Pages privées */}
+        <Route path="/ai/chapter-generator" element={<ChapterGenerator />} />
+        <Route path="/my-chapters" element={<MyChapters />} />
+        <Route path="/chapter/:id" element={<ViewChapter />} />
+
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/subjects" element={<Subjects />} />
@@ -57,16 +69,25 @@ function App() {
         <Route path="/courses" element={<Courses />} />
         <Route path="/course" element={<Course />} />
         <Route path="/courses/create" element={<CreateCourse />} />
-        <Route path="/courses/:id/full-summary" element={<CourseFullSummary />} />
+        <Route
+          path="/courses/:id/full-summary"
+          element={<CourseFullSummary />}
+        />
         <Route path="/courses/by-title/:title" element={<CourseByTitle />} />
 
         <Route path="/flashcards/:id" element={<Flashcards />} />
         <Route path="/planning" element={<Planning />} />
         <Route path="/planning/result" element={<PlanningResult />} />
         <Route path="/planning/all" element={<MyPlannings />} />
-        <Route path="/planning/subject/:subjectId" element={<SubjectPlanning />} />
+        <Route
+          path="/planning/subject/:subjectId"
+          element={<SubjectPlanning />}
+        />
 
-        <Route path="/progression/subject/:id" element={<SubjectProgression />} />
+        <Route
+          path="/progression/subject/:id"
+          element={<SubjectProgression />}
+        />
         <Route path="/progression" element={<Progression />} />
         <Route path="/progressionRevision" element={<ProgressionRevision />} />
 
@@ -85,11 +106,8 @@ function App() {
         {/* Chatbot */}
         <Route path="/chatbot" element={<Chatbot />} />
 
-
-
         <Route path="/features" element={<Features />} />
         <Route path="/api" element={<APIs />} />
-
       </Routes>
     </Router>
   );
