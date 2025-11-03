@@ -96,7 +96,7 @@ function Login() {
       >
         <div style={styles.authCard}>
           <img src={logo} alt="YnityLearn Logo" style={styles.logo} />
-          <h2 style={styles.title}>{isSignup ? "Create an account" : "Log in"}</h2>
+          <h2 style={styles.title}>{isSignup ? "Create an account" : "Sign in"}</h2>
 
           <form onSubmit={handleSubmit} style={styles.form}>
            
@@ -198,7 +198,7 @@ function Login() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              {isSignup ? "Sign up " : "Log In "}
+              {isSignup ? "Sign up " : "Sign In "}
             </motion.button>
           </form>
 
@@ -210,7 +210,7 @@ function Login() {
               onClick={() => setIsSignup((prev) => !prev)}
               style={{ color: "#f76a1e", cursor: "pointer", fontWeight: 600 }}
             >
-              {isSignup ? "Log In" : "Create an account"}
+              {isSignup ? "Sign In" : "Create an account"}
             </span>
           </p>
         </div>

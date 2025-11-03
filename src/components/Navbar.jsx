@@ -211,19 +211,25 @@ export default function Navbar() {
         )}
 
         <nav className="mobile-nav">
-          <NavLink to="/home">Home</NavLink>
-          <NavLink to="/Subjects">Subjects</NavLink>
-          <NavLink to="/my-chapters">My AI Chapters</NavLink> {/* ✅ Added */}
-          <NavLink to="/planning/all">My Schedules</NavLink>
-          <NavLink to="/my-summaries">My Summaries</NavLink>
-          <NavLink to="/my-exams">My Exams</NavLink>
-          <NavLink to="/chatbot">Assistant IA</NavLink>
-          <NavLink to="/Progression">Subject Progress</NavLink>
-          <NavLink to="/progressionRevision">Revision Progress</NavLink>
-          <NavLink to="/select-course">Add Room</NavLink>
-          <NavLink to="/join-room">Join Room</NavLink>
-          <NavLink to="/profile">My Profile</NavLink>
-        </nav>
+  <NavLink to="/home">Home</NavLink>
+
+  {user && (
+    <>
+      <NavLink to="/Subjects">Subjects</NavLink>
+      <NavLink to="/my-chapters">My AI Chapters</NavLink>
+      <NavLink to="/planning/all">My Schedules</NavLink>
+      <NavLink to="/my-summaries">My Summaries</NavLink>
+      <NavLink to="/my-exams">My Exams</NavLink>
+      <NavLink to="/chatbot">Assistant IA</NavLink>
+      <NavLink to="/Progression">Subject Progress</NavLink>
+      <NavLink to="/progressionRevision">Revision Progress</NavLink>
+      <NavLink to="/select-course">Add Room</NavLink>
+      <NavLink to="/join-room">Join Room</NavLink>
+      <NavLink to="/profile">My Profile</NavLink>
+    </>
+  )}
+</nav>
+
 
         {user ? (
           <div className="mobile-footer">

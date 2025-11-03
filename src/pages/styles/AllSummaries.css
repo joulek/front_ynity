@@ -25,28 +25,32 @@
   color: white;
 }
 
-/* GRID */
 .mysummaries-grid {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 1.5rem;
+  grid-template-columns: repeat(2, minmax(450px, 1fr)); /* 👉 ensures bigger cards */
+  gap: 2.5rem; /* 👉 more spacing */
+  padding: 2rem 1.5rem;
 }
+
+
+
 
 /* CARD */
 .mysummaries-card {
   background: white;
   border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 2rem; /* 👉 plus grand padding */
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 420px;
+  max-width: 520px; /* 👉 augementé de 420px à 520px */
+  min-height: 210px; /* 👉 ensure larger card height */
   margin: 0 auto;
 }
+
 
 .mysummaries-card:hover {
   transform: translateY(-4px);
@@ -127,6 +131,7 @@
   }
 }
 
+
 /* LOADING */
 .loading-circle {
   width: 70px;
@@ -136,7 +141,12 @@
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
-
+/* ✅ One card per row on phones */
+@media (max-width: 768px) {
+  .mysummaries-grid {
+    grid-template-columns: 1fr;
+  }
+}
 .loading-text {
   font-size: 1.2rem;
   margin-top: 1rem;

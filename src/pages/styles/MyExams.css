@@ -26,24 +26,27 @@
 /* Grid */
 .exams-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.4rem;
-  padding: .5rem;
   justify-content: center;
+  grid-template-columns: repeat(2, minmax(450px, 1fr));  /* ✅ 2 fixed columns */
+  gap: 2.5rem; /* more spacing like schedules */
+  padding: 2rem 1.5rem;
 }
+
 
 /* Card */
 .exam-item {
   background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
+  border-radius: 14px;
+  padding: 2rem; /* bigger padding */
   transition: .3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,.07);
-  border-left: 4px solid #3498db;
+  box-shadow: 0 6px 14px rgba(0,0,0,.1);
+  border-left: 5px solid #4f46e5; /* nicer color to match gradient */
   width: 100%;
-  max-width: 420px;
+  max-width: 520px; /* ✅ increased card width */
+  min-height: 210px; /* consistent height */
   margin: 0 auto;
 }
+
 
 .exam-item:hover {
   transform: translateY(-4px);
@@ -149,5 +152,11 @@
 
   .action-btn {
     width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .exams-list {
+    grid-template-columns: 1fr; /* ✅ 1 card per row on smartphones/tablets */
   }
 }
