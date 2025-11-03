@@ -19,6 +19,7 @@ function Subjects() {
   const [editingSubject, setEditingSubject] = useState(null);
   const [showCourseModal, setShowCourseModal] = useState(false);
   const [selectedSubjectId, setSelectedSubjectId] = useState(null);
+  
 
   const navigate = useNavigate();
 
@@ -122,20 +123,6 @@ function Subjects() {
     setShowModal(true);
   };
 
-  if (isLoading) {
-    return (
-      <div className="loading-screen-full">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          className="loading-circle"
-        />
-        <p className="loading-text">
-          Loading...
-        </p>
-      </div>
-    );
-  }
 
   return (
     <div className="subjects-container">

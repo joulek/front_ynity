@@ -1,5 +1,3 @@
-/* SubjectProgression.css */
-
 :root {
   --primary-color: #7c3aed;
   --primary-light: #a78bfa;
@@ -50,6 +48,7 @@
   to { transform: rotate(360deg); }
 }
 
+/* Empty state */
 .empty-state-container {
   display: flex;
   flex-direction: column;
@@ -80,17 +79,12 @@
   border: 1px solid var(--primary-color);
   transition: all 0.3s ease;
 }
-
 .back-link:hover {
   background-color: var(--primary-color);
   color: white;
 }
 
 /* Header Section */
-
-
-
-
 .page-header-subject-progression {
   text-align: center;
   margin-bottom: 3rem;
@@ -114,17 +108,13 @@
   animation: pulse 15s infinite linear;
 }
 
-
 .page-title-subject-progression {
   font-size: 2rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
   position: relative;
   z-index: 1;
-  color: white; /* Changement ici - suppression du dégradé de texte */
-  background: none; /* Suppression du background-clip */
-  -webkit-background-clip: unset;
-  background-clip: unset;
+  color: white;
 }
 
 .subject-label {
@@ -136,10 +126,8 @@
   font-weight: 700;
 }
 
-/* Progress Overview */
-.progress-overview {
-  margin-bottom: 3rem;
-}
+/* Progress Card */
+.progress-overview { margin-bottom: 3rem; }
 
 .progress-card {
   background-color: var(--bg-card);
@@ -160,11 +148,6 @@
   flex: 1;
   padding: 0 1rem;
 }
-
-.stat-item.highlight {
-  position: relative;
-}
-
 .stat-item.highlight::after {
   content: '';
   position: absolute;
@@ -177,7 +160,6 @@
   z-index: -1;
   opacity: 0.3;
 }
-
 .stat-number {
   display: block;
   font-size: 2.5rem;
@@ -185,11 +167,7 @@
   color: var(--primary-color);
   margin-bottom: 0.5rem;
 }
-
-.stat-item.highlight .stat-number {
-  color: var(--accent-color);
-}
-
+.stat-item.highlight .stat-number { color: var(--accent-color); }
 .stat-label {
   font-size: 1rem;
   color: var(--text-medium);
@@ -202,7 +180,6 @@
   border-radius: 6px;
   overflow: hidden;
 }
-
 .progress-bar-fill {
   height: 100%;
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
@@ -210,10 +187,8 @@
   transition: width 0.8s ease;
 }
 
-/* Graduation Timeline */
-.graduation-timeline-container {
-  margin-bottom: 3rem;
-}
+/* Timeline */
+.graduation-timeline-container { margin-bottom: 3rem; }
 
 .section-title {
   font-size: 1.5rem;
@@ -222,7 +197,6 @@
   position: relative;
   padding-bottom: 0.5rem;
 }
-
 .section-title::after {
   content: '';
   position: absolute;
@@ -241,7 +215,6 @@
   position: relative;
   padding: 2rem 0;
 }
-
 .graduation-timeline::before {
   content: '';
   position: absolute;
@@ -262,7 +235,6 @@
   flex: 1;
   padding: 0 0.5rem;
 }
-
 .graduation-circle {
   width: 60px;
   height: 60px;
@@ -276,7 +248,7 @@
   border: 3px solid var(--border-color);
   transition: all 0.3s ease;
   font-size: 1.2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
   margin-bottom: 1rem;
 }
 
@@ -284,166 +256,66 @@
   background-color: var(--primary-color);
   color: white;
   border-color: var(--primary-color);
-  box-shadow: 0 6px 10px rgba(124, 58, 237, 0.3);
+  box-shadow: 0 6px 10px rgba(124,58,237,0.3);
 }
-
 .graduation-step.completed .graduation-circle {
   background-color: var(--secondary-color);
   color: white;
   border-color: var(--secondary-color);
-  box-shadow: 0 6px 10px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 6px 10px rgba(16,185,129,0.3);
 }
-
 .graduation-step.exam .graduation-circle {
   background-color: var(--accent-color);
   color: white;
   border-color: var(--accent-color);
-  box-shadow: 0 6px 10px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 6px 10px rgba(245,158,11,0.3);
 }
-
- .exam-icon {
+.exam-icon, .check-icon {
   width: 30px;
   height: 30px;
   fill: white;
-  margin-top: -2px;
-}
-.check-icon{
-  width: 30px;
-  height: 30px;
-  fill: white;
-  margin-left: 1px;
-  margin-top: -2px;
 }
 
-.graduation-label {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
-  color: var(--text-medium);
-  text-align: center;
-  font-weight: 500;
-}
-
-.completion-badge {
-  margin-top: 0.5rem;
-  padding: 0.25rem 0.75rem;
-  background-color: var(--secondary-color);
-  color: white;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-/* Attempts Section */
-.attempts-section {
-  margin-bottom: 3rem;
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.search-container {
-  position: relative;
-  width: 300px;
-}
-
-.search-input {
-  width: 100%;
-  padding: 0.75rem 1rem 0.75rem 2.5rem;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.search-input:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
-}
-
-.search-icon {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  fill: var(--text-light);
-}
-
-.no-results {
-  text-align: center;
-  padding: 2rem;
-  color: var(--text-medium);
-  font-size: 1.1rem;
-}
+/* Attempts Cards */
+.attempts-section { margin-bottom: 3rem; }
 
 .attempts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
 }
-
 .attempt-card {
   background-color: var(--bg-card);
   border-radius: 12px;
-  padding: 0; /* Supprimez le padding global */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
   border: 1px solid var(--border-color);
-  overflow: hidden; /* Pour que le border-radius du header soit respecté */
+  transition: all 0.3s ease;
 }
-
-.attempt-card.mastered {
-  border-left: 4px solid var(--header-purple);
-}
-
+.attempt-card.mastered { border-left: 4px solid var(--header-purple); }
 .attempt-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
 }
 
 .card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 1rem 1.5rem;
   background: linear-gradient(135deg, var(--header-blue), var(--header-purple));
   color: white;
-  margin-bottom: 0; /* Supprimez la marge basse */
 }
+.course-title { font-size: 1.1rem; font-weight: 600; }
 
-.course-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: white; /* Changé pour contraster avec le fond */
-  margin: 0;
-}
 .score-badge {
   padding: 0.35rem 0.9rem;
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 600;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
+  background-color: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.score-badge.mastered {
-  background-color: rgba(255, 255, 255, 0.3);
-  font-weight: 700;
-}
-
-.card-body {
-  padding: 1.5rem;
-}
+.card-body { padding: 1.5rem; }
 .attempt-info {
   display: flex;
   justify-content: space-between;
@@ -454,170 +326,59 @@
   border-radius: 8px;
   color: var(--date-text);
 }
-
 .attempt-info:nth-child(2) {
   background-color: var(--score-bg);
   color: var(--score-text);
 }
 
-.info-label {
-  font-weight: 500;
+/* ✅ Responsive Fixes Already Added */
+@media (max-width: 1200px) { .progress-card { width: 100%; } }
+@media (max-width: 992px) {
+  .graduation-timeline {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+  .graduation-step { flex: 0 0 calc(33.33% - 1rem); }
+}
+@media (max-width: 768px) {
+  .progress-card { padding: 1.2rem; }
+  .progress-stats { flex-direction: column; gap: 1.2rem; }
+  .graduation-step { flex: 0 0 calc(50% - 1rem); }
+  .page-title-subject-progression { font-size: 1.5rem; }
+}
+@media (max-width: 480px) {
+  .graduation-step { flex: 0 0 100%; }
+  .graduation-circle { width: 48px; height: 48px; }
+  .section-title { font-size: 1.2rem; }
+}
+
+/* ✅ 👇 NEW — FIX TITLE SIZE TO MATCH SUBJECT PAGE */
+.page-title-subject-progression {
+  font-size: 2.8rem !important;
+  font-weight: 900 !important;
+}
+.page-title-subject-progression .subject-name {
+  font-size: 2.8rem !important;
+  font-weight: 900 !important;
+  color: #fff !important;
+}
+.page-title-subject-progression .subject-label {
+  font-size: 2.2rem !important;
+  font-weight: 600;
   opacity: 0.9;
 }
 
-/* Animation supplémentaire pour le hover */
-.attempt-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-.attempt-card:hover .card-header {
-  background: linear-gradient(135deg, var(--header-purple), var(--header-blue));
-}
-.card-footer {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.delete-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: transparent;
-  color: var(--danger-color);
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-.delete-btn:hover {
-  background-color: #fee2e2;
-}
-
-.trash-icon {
-  width: 18px;
-  height: 18px;
-  fill: var(--danger-color);
-}
-
-/* Info Alert */
-.info-alert {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  border-radius: 12px;
-  padding: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 2rem;
-}
-
-.alert-content h3 {
-  color: #92400e;
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-}
-
-.alert-content p {
-  color: #92400e;
-  opacity: 0.8;
-  margin: 0;
-}
-
-.search-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: #92400e;
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.search-btn:hover {
-  background-color: #78350f;
-}
-
-.search-icon-sm {
-  width: 16px;
-  height: 16px;
-  fill: white;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .graduation-timeline {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-  }
-
-  .graduation-step {
-    flex: 0 0 calc(25% - 1rem);
-    margin-bottom: 1rem;
-  }
-
-  .graduation-timeline::before {
-    display: none;
-  }
-}
-
+/* ✅ Mobile title scale */
 @media (max-width: 768px) {
   .page-title-subject-progression {
-    font-size: 2rem;
+    font-size: 2rem !important;
   }
-
-  .progress-stats {
-    flex-direction: column;
-    gap: 1.5rem;
+  .page-title-subject-progression .subject-name {
+    font-size: 2rem !important;
   }
-
-  .stat-item {
-    padding: 0;
+  .page-title-subject-progression .subject-label {
+    font-size: 1.6rem !important;
   }
-
-  .graduation-step {
-    flex: 0 0 calc(50% - 1rem);
-  }
-
-  .section-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .search-container {
-    width: 100%;
-  }
-
-  .attempts-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .progression-container {
-    padding: 1.5rem 1rem;
-  }
-
-  .graduation-circle {
-    width: 50px;
-    height: 50px;
-    font-size: 1rem;
-  }
-
-  .graduation-label {
-    font-size: 0.85rem;
-  }
-}
-
-.graduation-step.exam .graduation-circle.green-exam {
-  background-color: #22c55e !important; /* Vert */
-  color: white;
-  border: none;
 }

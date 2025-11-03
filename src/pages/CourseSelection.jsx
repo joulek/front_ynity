@@ -35,69 +35,58 @@ export default function CourseSelection() {
       <div className="decoration-element decor-2"></div>
       <div className="decoration-element decor-3"></div>
 
-      <div className="game-selection-split-layout">
-        {/* Left Section - Form */}
-        <div className="form-section">
-          <div className="form-container">
-            <h1 className="page-title">Learn smarter. Play harder!</h1>
-            <p className="page-subtitle">Boost your knowledge with interactive challenges</p>
-            
-            <div className="game-form-card">
-              <div className="form-header">
-                <span className="form-icon">🎯</span>
-                <h2>Start Your Challenge</h2>
-              </div>
-
-              {isLoading ? (
-                <div className="loading-animation">
-                  <div className="spinner"></div>
-                  <p>Loading courses...</p>
+      <div className="game-selection-content">
+        <div className="game-selection-split-layout">
+          {/* Left Section - Form */}
+          <div className="form-section">
+            <div className="form-container">
+              <h1 className="page-title">Learn smarter. Play harder!</h1>
+              <p className="page-subtitle">Boost your knowledge with interactive challenges</p>
+              
+              <div className="game-form-card">
+                <div className="form-header">
+                  <span className="form-icon">🎯</span>
+                  <h2>Start Your Challenge</h2>
                 </div>
-              ) : (
-                <>
-                  <div className="form-group">
-                    <p className="form-description">Choose a topic and challenge your brain through fun quizzes!</p>
-                    <label htmlFor="courseSelect">Select a course</label>
-                    <div className="select-wrapper">
-                      <select
-                        id="courseSelect"
-                        value={selectedCourseId}
-                        onChange={(e) => setSelectedCourseId(e.target.value)}
-                      >
-                        <option value="">-- Select --</option>
-                        {courses.map((c) => (
-                          <option key={c._id} value={c._id}>{c.title}</option>
-                        ))}
-                      </select>
-                      <div className="select-arrow"></div>
-                    </div>
-                  </div>
-                  <button 
-                    className="primary-button" 
-                    onClick={() => navigate("/create-room", { state: { selectedCourseId } })}
-                    disabled={!selectedCourseId}
-                  >
-                    <span>Launch Game</span>
-                  </button>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
 
-        {/* Right Section - Illustration */}
-        <div className="illustration-section">
-          <div className="illustration-content">
-            <img 
-              src={learningGame} 
-              alt="Learning Game" 
-              className="main-illustration"
-            />
-            <div className="illustration-overlay">
-              <h2>Challenge Yourself!</h2>
-              <p>Test your knowledge and have fun while learning</p>
+                {isLoading ? (
+                  <div className="loading-animation">
+                    <div className="spinner"></div>
+                    <p>Loading courses...</p>
+                  </div>
+                ) : (
+                  <>
+                    <div className="form-group">
+                      <p className="form-description">Choose a topic and challenge your brain through fun quizzes!</p>
+                      <label htmlFor="courseSelect">Select a course</label>
+                      <div className="select-wrapper">
+                        <select
+                          id="courseSelect"
+                          value={selectedCourseId}
+                          onChange={(e) => setSelectedCourseId(e.target.value)}
+                        >
+                          <option value="">-- Select --</option>
+                          {courses.map((c) => (
+                            <option key={c._id} value={c._id}>{c.title}</option>
+                          ))}
+                        </select>
+                        <div className="select-arrow"></div>
+                      </div>
+                    </div>
+                    <button 
+                      className="primary-button" 
+                      onClick={() => navigate("/create-room", { state: { selectedCourseId } })}
+                      disabled={!selectedCourseId}
+                    >
+                      <span>Launch Game</span>
+                    </button>
+                  </>
+                )}
+              </div>
             </div>
           </div>
+
+          
         </div>
       </div>
     </div>
