@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import Navbar from "../components/Navbar";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import { FaMicrophone, FaPaperPlane, FaTrash, FaEdit, FaFileUpload } from "react-icons/fa";
 import "../pages/styles/Chatbot.css";
 
