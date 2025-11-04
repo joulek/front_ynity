@@ -16,7 +16,7 @@ export default function ViewChapter() {
   useEffect(() => {
     const fetchChapter = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/ai/chapters", {
+        const res = await axios.get("https://backend-ynity-1.onrender.com/api/ai/chapters", {
           withCredentials: true,
         });
 

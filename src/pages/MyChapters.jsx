@@ -14,7 +14,7 @@ export default function MyChapters() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/ai/chapters", {
+        const res = await axios.get("https://backend-ynity-1.onrender.com/api/ai/chapters", {
           withCredentials: true,
         });
         setChapters(res.data);
@@ -41,7 +41,7 @@ export default function MyChapters() {
 
     setLoading(true);
     try {
-      await axios.delete(`http://localhost:5000/api/ai/chapter/${id}`, {
+      await axios.delete(`https://backend-ynity-1.onrender.com/api/ai/chapter/${id}`, {
         withCredentials: true,
       });
 
@@ -61,7 +61,7 @@ export default function MyChapters() {
     setLoading(true);
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/ai/chapter",
+        "https://backend-ynity-1.onrender.com/api/ai/chapter",
         { description },
         { withCredentials: true }
       );

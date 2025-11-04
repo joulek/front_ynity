@@ -19,7 +19,7 @@ const generateChapter = async () => {
 
   try {
     const res = await axios.post(
-      "http://localhost:5000/api/ai/chapter",
+      "https://backend-ynity-1.onrender.com/api/ai/chapter",
       { description },
       { withCredentials: true }
     );
